@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import React from "react";
 import { Inter, Crimson_Text } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -18,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body className={`${inter.variable} ${crimson.variable} font-sans`}>{children}</body>
+      <body className={`${inter.variable} ${crimson.variable} font-sans`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
